@@ -8,11 +8,11 @@
 		<version>2.7.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<groupId>com.wf</groupId>
+	<artifactId>PolicyService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>PolicyService</name>
+	<description>A service to enforce the security policy based on the project profile.</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -29,11 +29,11 @@
 		</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/org.kie/kie-ci -->
-<dependency>
-    <groupId>org.kie</groupId>
-    <artifactId>kie-ci</artifactId>
-    <version>7.63.0.Final</version>
-</dependency>
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-ci</artifactId>
+			<version>7.63.0.Final</version>
+		</dependency>
 
 	</dependencies>
 

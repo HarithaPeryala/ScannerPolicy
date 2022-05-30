@@ -1,17 +1,23 @@
 package rules
- import com.example.demo.Test
+ import com.wf.cto.application.PolicyEnforcer
  
- rule "sla for ui"
+ rule "policy for DBSENSITIVE applications"
   when 
-		testObject: Test(type=="ui")
+		policyEnforcer: PolicyEnforcer(projectProfile==PolicyEnforcer.ProfileType.DBSENSITIVE)
 	then
-		testObject.setSla("15");
+		policyEnforcer.setEnforcePolicy("OWASP 1 Scan is enforced based on the application profile type.");
 	end
- rule "sla for be"
+ rule "policy for NETWORKSENSITIVE applications"
 	when 
-		testObject: Test(type=="be")
+		policyEnforcer: PolicyEnforcer(projectProfile==PolicyEnforcer.ProfileType.NETWORKSENSITIVE)
 	then
-		testObject.setSla("25");
+		policyEnforcer.setEnforcePolicy("OWASP 8 Scan is enforced based on the application profile type.");
+	end
+ rule "policy for DEFAULT applications"
+	when 
+		policyEnforcer: PolicyEnforcer(projectProfile==PolicyEnforcer.ProfileType.DEFAULT)
+	then
+		policyEnforcer.setEnforcePolicy("No extra enforced rules on the application.");
 	end
   
   
